@@ -1,0 +1,7 @@
+local chatBox = peripheral.find("chat_box")
+
+if chatBox then
+    chatBox.sendMessage("WARNING! REACTOR 1 CRITICAL!")
+else
+    print("ERROR: Chat Box not found!")
+end
