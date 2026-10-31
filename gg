@@ -1,7 +1,19 @@
 local chatBox = peripheral.find("chat_box")
 
-if chatBox then
-    chatBox.sendMessage("WARNING! REACTOR 1 CRITICAL!")
+if not chatBox then
+    print("ERROR: No Chat Box detected!")
+    print("Check the wired modem connection.")
+    return
+end
+
+print("Chat Box detected!")
+
+local success, err = chatBox.sendMessage(
+    "WARNING! REACTOR 1 CRITICAL!"
+)
+
+if success then
+    print("Message sent successfully!")
 else
-    print("ERROR: Chat Box not found!")
+    print("SEND FAILED: " .. tostring(err))
 end
